@@ -23,16 +23,7 @@ namespace WeddingBudgetCalculatorMVC.Controllers
 
         public IActionResult Index()
         {
-            Venue testVenue = new Venue();
-            testVenue.VenueRentalCost = 1000;
-            testVenue.ServiceProviderName = "TestVenue";
-            testVenue.TaxPercent = 7;
-            testVenue.AmountPaid = 0;
-            testVenue.ServiceProviderCost = (testVenue.VenueRentalCost * testVenue.TaxPercent);
-            testVenue.ServiceProviderType = "Venue";
-
-            _db.ServiceProviders.Add(testVenue);
-            _db.SaveChanges();
+            
             return View();
         }
 
