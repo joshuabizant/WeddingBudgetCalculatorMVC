@@ -10,8 +10,8 @@ using WeddingBudgetCalculatorMVC.Data;
 namespace WeddingBudgetCalculatorMVC.Migrations
 {
     [DbContext(typeof(BudgetDbContext))]
-    [Migration("20211023202624_venueTest2")]
-    partial class venueTest2
+    [Migration("20211025171333_abstractTest")]
+    partial class abstractTest
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -67,7 +67,7 @@ namespace WeddingBudgetCalculatorMVC.Migrations
                     b.Property<DateTime>("PaymentDueDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ProviderWebsit")
+                    b.Property<string>("ProviderWebsite")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("ServiceProviderCost")
@@ -87,6 +87,83 @@ namespace WeddingBudgetCalculatorMVC.Migrations
                     b.HasIndex("BudgetId");
 
                     b.ToTable("ServiceProviders");
+                });
+
+            modelBuilder.Entity("WeddingBudgetCalculatorMVC.Models.Caterer", b =>
+                {
+                    b.HasBaseType("WeddingBudgetCalculatorMVC.Models.ServiceProviders");
+
+                    b.Property<string>("CatererStyle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("RestaurantTaxPercent")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ServiceChargePercent")
+                        .HasColumnType("float");
+
+                    b.ToTable("Caterers");
+                });
+
+            modelBuilder.Entity("WeddingBudgetCalculatorMVC.Models.DJ", b =>
+                {
+                    b.HasBaseType("WeddingBudgetCalculatorMVC.Models.ServiceProviders");
+
+                    b.Property<int>("HoursOnsite")
+                        .HasColumnType("int");
+
+                    b.ToTable("DJs");
+                });
+
+            modelBuilder.Entity("WeddingBudgetCalculatorMVC.Models.Florist", b =>
+                {
+                    b.HasBaseType("WeddingBudgetCalculatorMVC.Models.ServiceProviders");
+
+                    b.Property<double>("CostOfBoquest")
+                        .HasColumnType("float");
+
+                    b.Property<double>("CostOfCorsages")
+                        .HasColumnType("float");
+
+                    b.Property<double>("DecorativeFlowerCost")
+                        .HasColumnType("float");
+
+                    b.Property<double>("FlowerAdditionalCost")
+                        .HasColumnType("float");
+
+                    b.Property<int>("NumberOfBoquets")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumberOfCorsages")
+                        .HasColumnType("int");
+
+                    b.ToTable("Florists");
+                });
+
+            modelBuilder.Entity("WeddingBudgetCalculatorMVC.Models.FoodProvider", b =>
+                {
+                    b.HasBaseType("WeddingBudgetCalculatorMVC.Models.ServiceProviders");
+
+                    b.Property<string>("FoodItem")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("ServiceChargePercent")
+                        .HasColumnType("float");
+
+                    b.ToTable("FoodProviders");
+                });
+
+            modelBuilder.Entity("WeddingBudgetCalculatorMVC.Models.Photographer", b =>
+                {
+                    b.HasBaseType("WeddingBudgetCalculatorMVC.Models.ServiceProviders");
+
+                    b.Property<int>("HoursOfPhotos")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumberOfPhotographers")
+                        .HasColumnType("int");
+
+                    b.ToTable("Photographers");
                 });
 
             modelBuilder.Entity("WeddingBudgetCalculatorMVC.Models.Venue", b =>
@@ -119,6 +196,51 @@ namespace WeddingBudgetCalculatorMVC.Migrations
                     b.HasOne("WeddingBudgetCalculatorMVC.Models.Budget", null)
                         .WithMany("BudgetServiceProviders")
                         .HasForeignKey("BudgetId");
+                });
+
+            modelBuilder.Entity("WeddingBudgetCalculatorMVC.Models.Caterer", b =>
+                {
+                    b.HasOne("WeddingBudgetCalculatorMVC.Models.ServiceProviders", null)
+                        .WithOne()
+                        .HasForeignKey("WeddingBudgetCalculatorMVC.Models.Caterer", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WeddingBudgetCalculatorMVC.Models.DJ", b =>
+                {
+                    b.HasOne("WeddingBudgetCalculatorMVC.Models.ServiceProviders", null)
+                        .WithOne()
+                        .HasForeignKey("WeddingBudgetCalculatorMVC.Models.DJ", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WeddingBudgetCalculatorMVC.Models.Florist", b =>
+                {
+                    b.HasOne("WeddingBudgetCalculatorMVC.Models.ServiceProviders", null)
+                        .WithOne()
+                        .HasForeignKey("WeddingBudgetCalculatorMVC.Models.Florist", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WeddingBudgetCalculatorMVC.Models.FoodProvider", b =>
+                {
+                    b.HasOne("WeddingBudgetCalculatorMVC.Models.ServiceProviders", null)
+                        .WithOne()
+                        .HasForeignKey("WeddingBudgetCalculatorMVC.Models.FoodProvider", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WeddingBudgetCalculatorMVC.Models.Photographer", b =>
+                {
+                    b.HasOne("WeddingBudgetCalculatorMVC.Models.ServiceProviders", null)
+                        .WithOne()
+                        .HasForeignKey("WeddingBudgetCalculatorMVC.Models.Photographer", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("WeddingBudgetCalculatorMVC.Models.Venue", b =>

@@ -19,7 +19,22 @@ namespace WeddingBudgetCalculatorMVC.Data
         
        public DbSet<Venue> Venues { get; set; }
         
-       // public DbSet<Caterer> Caterers { get; set; }
+       public DbSet<WeddingBudgetCalculatorMVC.Models.Florist> Florist { get; set; }
+        
+       public DbSet<WeddingBudgetCalculatorMVC.Models.DJ> DJ { get; set; }
+        
+       public DbSet<WeddingBudgetCalculatorMVC.Models.Caterer> Caterer { get; set; }
+        
+       public DbSet<WeddingBudgetCalculatorMVC.Models.Photographer> Photographer { get; set; }
+        
+       public DbSet<WeddingBudgetCalculatorMVC.Models.FoodProvider> FoodProvider { get; set; }
+        
+       public DbSet<WeddingBudgetCalculatorMVC.Models.BeverageProvider> BeverageProvider { get; set; }
+        
+       public DbSet<Caterer> Caterers { get; set; }
+        public DbSet<BeverageProvider> BeverageProviders { get; set; }
+
+
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
         //    modelBuilder.Entity<Caterer>().ToTable("Caterers");

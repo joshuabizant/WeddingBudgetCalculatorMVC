@@ -1,4 +1,4 @@
-﻿@model WeddingBudgetCalculatorMVC.Models.Venue
+﻿@model WeddingBudgetCalculatorMVC.Models.Florist
 
 @{
     Layout = null;
@@ -9,45 +9,45 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>CreateVenue</title>
+    <title>CreateFlorist</title>
 </head>
 <body>
 
-<h4>Venue</h4>
+<h4>Florist</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CreateVenue">
+        <form asp-action="CreateFlorist">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="VenueRentalCost" class="control-label"></label>
-                <input asp-for="VenueRentalCost" class="form-control" />
-                <span asp-validation-for="VenueRentalCost" class="text-danger"></span>
+                <label asp-for="NumberOfBoquets" class="control-label"></label>
+                <input asp-for="NumberOfBoquets" class="form-control" />
+                <span asp-validation-for="NumberOfBoquets" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CeremonyCost" class="control-label"></label>
-                <input asp-for="CeremonyCost" class="form-control" />
-                <span asp-validation-for="CeremonyCost" class="text-danger"></span>
+                <label asp-for="CostOfBoquest" class="control-label"></label>
+                <input asp-for="CostOfBoquest" class="form-control" />
+                <span asp-validation-for="CostOfBoquest" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SecurityCost" class="control-label"></label>
-                <input asp-for="SecurityCost" class="form-control" />
-                <span asp-validation-for="SecurityCost" class="text-danger"></span>
+                <label asp-for="NumberOfCorsages" class="control-label"></label>
+                <input asp-for="NumberOfCorsages" class="form-control" />
+                <span asp-validation-for="NumberOfCorsages" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CleaningCost" class="control-label"></label>
-                <input asp-for="CleaningCost" class="form-control" />
-                <span asp-validation-for="CleaningCost" class="text-danger"></span>
+                <label asp-for="CostOfCorsages" class="control-label"></label>
+                <input asp-for="CostOfCorsages" class="form-control" />
+                <span asp-validation-for="CostOfCorsages" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DecorationCost" class="control-label"></label>
-                <input asp-for="DecorationCost" class="form-control" />
-                <span asp-validation-for="DecorationCost" class="text-danger"></span>
+                <label asp-for="DecorativeFlowerCost" class="control-label"></label>
+                <input asp-for="DecorativeFlowerCost" class="form-control" />
+                <span asp-validation-for="DecorativeFlowerCost" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="VenueAdditionalCost" class="control-label"></label>
-                <input asp-for="VenueAdditionalCost" class="form-control" />
-                <span asp-validation-for="VenueAdditionalCost" class="text-danger"></span>
+                <label asp-for="FlowerAdditionalCost" class="control-label"></label>
+                <input asp-for="FlowerAdditionalCost" class="form-control" />
+                <span asp-validation-for="FlowerAdditionalCost" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ServiceProviderType" class="control-label"></label>

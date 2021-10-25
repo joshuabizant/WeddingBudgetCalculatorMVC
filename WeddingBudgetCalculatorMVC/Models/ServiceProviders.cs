@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeddingBudgetCalculatorMVC.Models
 {
-    public class ServiceProviders
+    public  abstract class ServiceProviders
     {
         [Key]
         public int Id { get; set; }
@@ -16,7 +16,7 @@ namespace WeddingBudgetCalculatorMVC.Models
         public DateTime PaymentDueDate { get; set; }
         public double AmountPaid { get; set; }
         public string ServiceProviderName { get; set; }
-        public string ProviderWebsit { get; set; }
+        public string ProviderWebsite { get; set; }
         public double TaxPercent { get; set; }
     }
 }
