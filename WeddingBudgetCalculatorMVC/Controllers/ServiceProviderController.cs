@@ -23,21 +23,7 @@ namespace WeddingBudgetCalculatorMVC.Controllers
             return View(providerList);
         }
 
-        public IActionResult CreateVenue()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult CreateVenue(Venue obj)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Venues.Add(obj);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(obj);
-        }
+       
 
         public IActionResult CreateFlorist()
         {

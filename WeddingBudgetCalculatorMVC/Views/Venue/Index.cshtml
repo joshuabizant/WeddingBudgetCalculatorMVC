@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WeddingBudgetCalculatorMVC.Models.ServiceProviders>
+﻿@model IEnumerable<WeddingBudgetCalculatorMVC.Models.Venue>
 
 
 
@@ -12,17 +12,15 @@
 <body>
     <p>Place to show Service Provider Information</p>
 
-    
-
 
     <div class="container p-3">
         <div class="row pt-4">
             <div class="col-6">
                 <h2 class="text-primary">Service Providers</h2>
             </div>
-            <!--<div class="col-6 text-center">-->
-                @*<a asp-controller="Expense" asp-action="Create" class="btn btn-primary">Create new Expense</a>*@
-            <!--</div>-->
+            <div class="col-6 text-center">
+            <a asp-controller="Venue" asp-action="Create" class="btn btn-primary">Create Venue</a>
+            </div>
         </div>
         <br />
         @if (Model.Count() > 0)
@@ -31,13 +29,13 @@
                 <thead>
                     <tr>
                         <th>
-                            Service Provider
-                        </th>
-                        <th>
-                            Type
+                            Venue Name
                         </th>
                         <th>
                             Total Cost
+                        </th>
+                        <th>
+                            Rental Cost
                         </th>
                     </tr>
                 </thead>
@@ -46,15 +44,10 @@
                     {
                         <tr>
                             <td width="30%">@service.ServiceProviderName</td>
-                            <td width="30%">@service.ServiceProviderType</td>
-                            <td width="30%">@service.ServiceProviderCost
-                                @*<div class="w-100 btn-group" role="group">
-                                    <a asp-controller="Expense" asp-action="Update" asp-route-Id="@expense.Id" class="btn btn-primary mx-1">Update</a>
-                                    <a asp-controller="Expense" asp-action="Delete" asp-route-Id="@expense.Id" class="btn btn-danger mx-1">Delete</a>
-                                </div>*@
-                            </td>
-                        </tr>
-                    }
+                            <td width="30%">@service.ServiceProviderCost</td>
+                            <td width="30%">@service.VenueRentalCost</td>
+                    </tr>
+                }
                 </tbody>
             </table>
         }
@@ -62,7 +55,7 @@
         {
             <p>No items created yet</p>
         }
-        </div>
+    </div>
 
 </body>
 </html>
