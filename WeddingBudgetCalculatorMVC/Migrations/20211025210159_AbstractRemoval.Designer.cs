@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WeddingBudgetCalculatorMVC.Data;
 
 namespace WeddingBudgetCalculatorMVC.Migrations
 {
     [DbContext(typeof(BudgetDbContext))]
-    partial class BudgetDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211025210159_AbstractRemoval")]
+    partial class AbstractRemoval
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -125,9 +127,6 @@ namespace WeddingBudgetCalculatorMVC.Migrations
             modelBuilder.Entity("WeddingBudgetCalculatorMVC.Models.DJ", b =>
                 {
                     b.HasBaseType("WeddingBudgetCalculatorMVC.Models.ServiceProviders");
-
-                    b.Property<double>("DJCost")
-                        .HasColumnType("float");
 
                     b.Property<int>("HoursOnsite")
                         .HasColumnType("int");

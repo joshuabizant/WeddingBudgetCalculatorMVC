@@ -12,6 +12,19 @@ namespace WeddingBudgetCalculatorMVC.Models
 
         public int NumberOfPhotographers { get; set; }
         public int HoursOfPhotos { get; set; }
+
+        public double PhotographerCost { get; set; }
+
+        public void PhotographerTotalCost (Photographer photographer)
+        {
+            double totalCost;
+            double taxCost;
+
+            taxCost = photographer.PhotographerCost * (photographer.TaxPercent / 100);
+            totalCost = taxCost + photographer.PhotographerCost;
+
+            photographer.ServiceProviderCost = totalCost;
+        }
     }
 }
 

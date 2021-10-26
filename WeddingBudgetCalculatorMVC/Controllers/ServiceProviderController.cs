@@ -3,19 +3,40 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WeddingBudgetCalculatorMVC.Data;
+using WeddingBudgetCalculatorMVC.Models;
 
 namespace WeddingBudgetCalculatorMVC.Controllers
 {
     public class ServiceProviderController : Controller
     {
+        private readonly BudgetDbContext _db;
+
+        public ServiceProviderController(BudgetDbContext db)
+        {
+            _db = db;
+        }
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<ServiceProviders> providerList = _db.ServiceProviders;
+
+            return View(providerList);
         }
 
         public IActionResult CreateVenue()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult CreateVenue(Venue obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Venues.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
         }
 
         public IActionResult CreateFlorist()

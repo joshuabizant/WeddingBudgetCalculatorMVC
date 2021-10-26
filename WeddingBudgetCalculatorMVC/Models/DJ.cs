@@ -11,5 +11,18 @@ namespace WeddingBudgetCalculatorMVC.Models
     {
 
         public int HoursOnsite { get; set; }
+        public double DJCost { get; set; }
+
+        public void DJTotalCost(DJ dj)
+        {
+            double taxCost;
+            double totalCost;
+
+            taxCost = dj.DJCost * (dj.TaxPercent / 100);
+            totalCost = taxCost + dj.DJCost;
+
+            dj.ServiceProviderCost = totalCost;
+
+        }
     }
 }

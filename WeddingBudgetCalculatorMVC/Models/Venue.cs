@@ -20,5 +20,17 @@ namespace WeddingBudgetCalculatorMVC.Models
         public double VenueAdditionalCost { get; set; }
 
       
+        public void CalculateTotalCost(Venue venue)
+        {
+            double venueCost;
+            double taxCost;
+            double totalCost;
+
+
+            venueCost = venue.VenueRentalCost + venue.CeremonyCost + venue.SecurityCost + venue.CleaningCost + venue.DecorationCost + venue.VenueAdditionalCost;
+            taxCost = venueCost * (venue.TaxPercent / 100);
+            totalCost = taxCost + venueCost;
+            venue.ServiceProviderCost = totalCost;
+        }
     }
 }

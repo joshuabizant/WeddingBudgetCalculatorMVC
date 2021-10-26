@@ -1,8 +1,6 @@
 ﻿@model WeddingBudgetCalculatorMVC.Models.Venue
 
-@{
-    Layout = null;
-}
+
 
 <!DOCTYPE html>
 
@@ -17,7 +15,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CreateVenue">
+        <form method="post" asp-action="CreateVenue">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="VenueRentalCost" class="control-label"></label>
@@ -64,11 +62,11 @@
                 <input asp-for="Comments" class="form-control" />
                 <span asp-validation-for="Comments" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="PaymentDueDate" class="control-label"></label>
                 <input asp-for="PaymentDueDate" class="form-control" />
                 <span asp-validation-for="PaymentDueDate" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group">
                 <label asp-for="AmountPaid" class="control-label"></label>
                 <input asp-for="AmountPaid" class="form-control" />

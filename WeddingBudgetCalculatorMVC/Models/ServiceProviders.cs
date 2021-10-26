@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeddingBudgetCalculatorMVC.Models
 {
-    public  abstract class ServiceProviders
+    public class ServiceProviders
     {
         [Key]
         public int Id { get; set; }
