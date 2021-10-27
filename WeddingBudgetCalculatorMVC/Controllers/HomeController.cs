@@ -32,8 +32,19 @@ namespace WeddingBudgetCalculatorMVC.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Create(Budget obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Budgets.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
 
-       
+
 
 
 
