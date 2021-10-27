@@ -22,5 +22,10 @@ namespace WeddingBudgetCalculatorMVC.Controllers
 
             return View(providerList);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

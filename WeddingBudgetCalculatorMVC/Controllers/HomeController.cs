@@ -20,17 +20,22 @@ namespace WeddingBudgetCalculatorMVC.Controllers
             _db = db;
         }
 
-
         public IActionResult Index()
         {
-            
-            return View();
+
+            IEnumerable<Budget> providerList = _db.Budgets;
+
+            return View(providerList);
         }
 
-        public IActionResult Privacy()
+        public IActionResult Create()
         {
             return View();
         }
+
+       
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
